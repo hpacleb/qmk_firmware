@@ -431,11 +431,3 @@ void bluetooth_task(void) {
 bluetooth_state_t bluetooth_get_state(void) {
     return bt_state;
 };
-
-bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
-    if (get_transport() == TRANSPORT_BLUETOOTH) {
-        lpm_timer_reset();
-    }
-
-    return process_record_user(keycode, record);
-}

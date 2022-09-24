@@ -186,28 +186,6 @@ void led_matrix_indicators_user(void) {
 }
 #endif
 
-#ifdef RGB_MATRIX_ENABLE
-void rgb_matrix_indicators_user(void) {
-    if (factory_reset_ind_state) {
-        rgb_matrix_set_color_all(factory_reset_ind_state % 2 ? 0 : 255, 0, 0);
-    } else if (backlight_test_mode) {
-        switch (backlight_test_mode) {
-            case BACKLIGHT_TEST_WHITE:
-                rgb_matrix_set_color_all(255, 255, 255);
-                break;
-            case BACKLIGHT_TEST_RED:
-                rgb_matrix_set_color_all(255, 0, 0);
-                break;
-            case BACKLIGHT_TEST_GREEN:
-                rgb_matrix_set_color_all(0, 255, 0);
-                break;
-            case BACKLIGHT_TEST_BLUE:
-                rgb_matrix_set_color_all(0, 0, 255);
-                break;
-        }
-    }
-}
-#endif
 
 void factory_reset_task(void) {
     if (factory_reset_timer) factory_timer_check();
